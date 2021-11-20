@@ -1,26 +1,28 @@
+import numpy as np
 import streamlit as st
 import pandas as pd
-#import cv2
+import cv2
 
 st.write('Hello World')
 st.header('Jenny First Webapp')
+st.write('haha')
 
-st.image('media/dog-beach-lifesaver.png')
+# st.image('media/dog-beach-lifesaver.png')
 
-st.button('Hit me')
-st.checkbox('Check me out')
-st.radio('Radio', [1,2,3])
-st.selectbox('Select', [1,2,3])
-st.multiselect('Multiselect', [1,2,3])
-st.slider('Slide me', min_value=0, max_value=10)
-st.select_slider('Slide to select', options=[1,'2'])
-st.text_input('Enter some text')
-st.number_input('Enter a number')
-st.text_area('Area for textual entry')
-st.date_input('Date input')
-st.time_input('Time entry')
-st.file_uploader('File uploader')
-st.color_picker('Pick a color')
+# st.button('Hit me')
+# st.checkbox('Check me out')
+# st.radio('Radio', [1,2,3])
+# st.selectbox('Select', [1,2,3])
+# st.multiselect('Multiselect', [1,2,3])
+# st.slider('Slide me', min_value=0, max_value=10)
+# st.select_slider('Slide to select', options=[1,'2'])
+# st.text_input('Enter some text')
+# st.number_input('Enter a number')
+# st.text_area('Area for textual entry')
+# st.date_input('Date input')
+# st.time_input('Time entry')
+# st.file_uploader('File uploader')
+# st.color_picker('Pick a color')
 
 #tao menu
 menu = ['Home', 'About me', 'Read Data','Camera']
@@ -73,3 +75,19 @@ elif choice == 'Camera':
             break
 
     cap.release()
+
+    if  captured_image.all() != None:
+        st.image(captured_image)
+        st.write('Image is capture:')
+
+        #Resize the Image according with your model
+        captured_image = cv2.resize(_____________)
+        #Expand dim to make sure your img_array is (1, Height, Width , Channel ) before plugging into the model
+        img_array  = np.expand_dims(captured_image, axis=0)
+        #Check the img_array here
+        st.write(img_array)
+
+        prediction = model.predict(img_array)
+
+        # Preprocess your prediction , How are we going to get the label name out from the prediction
+        # Now it's your turn to solve the rest of the code
