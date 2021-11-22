@@ -14,7 +14,8 @@ choice = st.sidebar.selectbox('Check your money with options below:', menu)
 
 
 #Load your model and check create the class_names list
-Model_Path = 'my_model_checkpoint_ResNet50v2.h5'
+Model_Path = 'my_model_checkpoint_DenseNet.h5'
+
 #class_names = {0 : '1000', 1 : '10000', 2 : '100000', 3 : '2000', 4 : '20000', 5 : '200000', 6 : '5000', 7 : '50000', 8 : '500000'}
 class_names = ['1,000', '10,000', '100,000',  '2,000',  '20,000',  '200,000',  '5,000', '50,000',  '500,000']
 model = tf.keras.models.load_model(Model_Path)
